@@ -9,7 +9,7 @@ class EagerSingleton:
   __instance = None
 
   def __init__(self):
-    if __instance is not None:
+    if EagerSingleton.__instance is not None:
       raise Exception("Instance is not None")
     EagerSingleton.__instance = DBConnect()
 
@@ -20,3 +20,4 @@ class EagerSingleton:
 if __name__ == "__main__":
   singleton_class = EagerSingleton()
   db_connect = singleton_class.get_instance()
+  db_connect.connect()
